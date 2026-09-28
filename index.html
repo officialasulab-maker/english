@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use English-Malayalam Sentences</title>
+    <style>
+        :root {
+            --primary-color: #0369a1;
+            --primary-hover: #0284c7;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Search Bar */
+        .search-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 9999px;
+            outline: none;
+            font-size: 1rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            gap: 2rem;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            flex: 0 0 250px;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            aside {
+                display: block;
+            }
+        }
+
+        .nav-links {
+            position: sticky;
+            top: 100px;
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-links h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Content Area */
+        main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .category-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            scroll-margin-top: 120px;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-color);
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .english-text {
+            font-weight: 500;
+            width: 50%;
+        }
+
+        .malayalam-text {
+            color: #334155;
+            width: 50%;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 767px) {
+            header {
+                padding: 1rem;
+            }
+            .category-section {
+                padding: 1rem;
+            }
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Learn English ⇌ Malayalam</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for a word or phrase...">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <div class="nav-links">
+                <h3>Categories</h3>
+                <a href="#greetings">Greetings & Basics</a>
+                <a href="#questions">Common Questions</a>
+                <a href="#daily">Daily Activities</a>
+                <a href="#travel">Travel & Directions</a>
+                <a href="#health">Feelings & Health</a>
+                <a href="#work">Work & Office</a>
+                <a href="#shopping">Shopping & Dining</a>
+                <a href="#commands">General Commands</a>
+            </div>
+        </aside>
+
+        <main>
+            <div id="noResults" class="no-results">
+                <h3>No sentences found matching your search.</h3>
+                <p>Try searching for a different word.</p>
+            </div>
+
+            <section id="greetings" class="category-section">
+                <h2 class="category-title">Greetings & Basic Conversation (ആശംസകളും അടിസ്ഥാന സംഭാഷണവും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">Good morning.</td><td class="malayalam-text">ശുഭപ്രഭാതം.</td></tr>
+                            <tr><td class="english-text">How are you?</td><td class="malayalam-text">നിങ്ങൾക്ക് സുഖമാണോ?</td></tr>
+                            <tr><td class="english-text">I am fine, thank you.</td><td class="malayalam-text">എനിക്ക് സുഖമാണ്, നന്ദി.</td></tr>
+                            <tr><td class="english-text">What is your name?</td><td class="malayalam-text">നിങ്ങളുടെ പേരെന്താണ്?</td></tr>
+                            <tr><td class="english-text">My name is John.</td><td class="malayalam-text">എന്റെ പേര് ജോൺ എന്നാണ്.</td></tr>
+                            <tr><td class="english-text">Nice to meet you.</td><td class="malayalam-text">നിങ്ങളെ കണ്ടതിൽ സന്തോഷം.</td></tr>
+                            <tr><td class="english-text">See you later.</td><td class="malayalam-text">പിന്നീട് കാണാം.</td></tr>
+                            <tr><td class="english-text">Please sit down.</td><td class="malayalam-text">ദയവായി ഇരിക്കുക.</td></tr>
+                            <tr><td class="english-text">Where are you from?</td><td class="malayalam-text">നിങ്ങൾ എവിടെ നിന്നാണ് വരുന്നത്?</td></tr>
+                            <tr><td class="english-text">I don't understand.</td><td class="malayalam-text">എനിക്ക് മനസ്സിലാകുന്നില്ല.</td></tr>
+                            <tr><td class="english-text">Could you repeat that?</td><td class="malayalam-text">അതൊന്ന് ആവർത്തിക്കാമോ?</td></tr>
+                            <tr><td class="english-text">Excuse me.</td><td class="malayalam-text">ക്ഷമിക്കണം.</td></tr>
+                            <tr><td class="english-text">I am sorry.</td><td class="malayalam-text">എന്നോട് ക്ഷമിക്കൂ.</td></tr>
+                            <tr><td class="english-text">Thank you very much.</td><td class="malayalam-text">വളരെ നന്ദി.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="questions" class="category-section">
+                <h2 class="category-title">Common Questions & Inquiries (ചോദ്യങ്ങളും അന്വേഷണങ്ങളും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">What happened?</td><td class="malayalam-text">എന്താണ് സംഭവിച്ചത്?</td></tr>
+                            <tr><td class="english-text">Where are you going?</td><td class="malayalam-text">നിങ്ങൾ എങ്ങോട്ടാണ് പോകുന്നത്?</td></tr>
+                            <tr><td class="english-text">When will you come?</td><td class="malayalam-text">നിങ്ങൾ എപ്പോൾ വരും?</td></tr>
+                            <tr><td class="english-text">Why are you crying?</td><td class="malayalam-text">നിങ്ങൾ എന്തിനാണ് കരയുന്നത്?</td></tr>
+                            <tr><td class="english-text">Who is there?</td><td class="malayalam-text">അവിടെ ആരാണ്?</td></tr>
+                            <tr><td class="english-text">How much is this?</td><td class="malayalam-text">ഇതിന് എത്ര രൂപയാണ്?</td></tr>
+                            <tr><td class="english-text">Can you help me?</td><td class="malayalam-text">എന്നെ സഹായിക്കാമോ?</td></tr>
+                            <tr><td class="english-text">What is the time now?</td><td class="malayalam-text">ഇപ്പോൾ സമയം എത്രയായി?</td></tr>
+                            <tr><td class="english-text">Have you eaten?</td><td class="malayalam-text">നിങ്ങൾ ഭക്ഷണം കഴിച്ചോ?</td></tr>
+                            <tr><td class="english-text">What are you doing?</td><td class="malayalam-text">നിങ്ങൾ എന്താണ് ചെയ്യുന്നത്?</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="daily" class="category-section">
+                <h2 class="category-title">Daily Activities & Home (ദൈനംദിന കാര്യങ്ങളും വീടും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">Wake up quickly.</td><td class="malayalam-text">വേഗം എഴുന്നേൽക്കൂ.</td></tr>
+                            <tr><td class="english-text">Brush your teeth.</td><td class="malayalam-text">പല്ല് തേക്കൂ.</td></tr>
+                            <tr><td class="english-text">Take a bath.</td><td class="malayalam-text">കുളിക്കൂ.</td></tr>
+                            <tr><td class="english-text">Eat your breakfast.</td><td class="malayalam-text">പ്രഭാതഭക്ഷണം കഴിക്കൂ.</td></tr>
+                            <tr><td class="english-text">I am going to the office.</td><td class="malayalam-text">ഞാൻ ഓഫീസിലേക്ക് പോവുകയാണ്.</td></tr>
+                            <tr><td class="english-text">Turn off the fan.</td><td class="malayalam-text">ഫാൻ ഓഫ് ചെയ്യൂ.</td></tr>
+                            <tr><td class="english-text">Please turn on the light.</td><td class="malayalam-text">ദയവായി ലൈറ്റ് ഇടൂ.</td></tr>
+                            <tr><td class="english-text">Clean the room.</td><td class="malayalam-text">മുറി വൃത്തിയാക്കൂ.</td></tr>
+                            <tr><td class="english-text">Wash the clothes.</td><td class="malayalam-text">തുണികൾ കഴുകുക.</td></tr>
+                            <tr><td class="english-text">Lock the door.</td><td class="malayalam-text">വാതിൽ പൂട്ടുക.</td></tr>
+                            <tr><td class="english-text">Open the window.</td><td class="malayalam-text">ജനൽ തുറക്കുക.</td></tr>
+                            <tr><td class="english-text">Go to sleep.</td><td class="malayalam-text">ഉറങ്ങാൻ പോകൂ.</td></tr>
+                            <tr><td class="english-text">I am reading a book.</td><td class="malayalam-text">ഞാൻ ഒരു പുസ്തകം വായിക്കുകയാണ്.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="travel" class="category-section">
+                <h2 class="category-title">Travel & Directions (യാത്രയും വഴികളും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">Where is the bus stand?</td><td class="malayalam-text">ബസ് സ്റ്റാൻഡ് എവിടെയാണ്?</td></tr>
+                            <tr><td class="english-text">Stop the car here.</td><td class="malayalam-text">കാർ ഇവിടെ നിർത്തുക.</td></tr>
+                            <tr><td class="english-text">Go straight.</td><td class="malayalam-text">നേരെ പോവുക.</td></tr>
+                            <tr><td class="english-text">Turn left.</td><td class="malayalam-text">ഇടത്തോട്ട് തിരിയുക.</td></tr>
+                            <tr><td class="english-text">Turn right.</td><td class="malayalam-text">വലത്തോട്ട് തിരിയുക.</td></tr>
+                            <tr><td class="english-text">How far is the railway station?</td><td class="malayalam-text">റെയിൽവേ സ്റ്റേഷൻ എത്ര ദൂരത്താണ്?</td></tr>
+                            <tr><td class="english-text">I want a ticket to Kochi.</td><td class="malayalam-text">എനിക്ക് കൊച്ചിയിലേക്ക് ഒരു ടിക്കറ്റ് വേണം.</td></tr>
+                            <tr><td class="english-text">When does the train arrive?</td><td class="malayalam-text">ട്രെയിൻ എപ്പോഴാണ് വരുന്നത്?</td></tr>
+                            <tr><td class="english-text">Drive slowly.</td><td class="malayalam-text">പതുക്കെ ഓടിക്കുക.</td></tr>
+                            <tr><td class="english-text">We have reached.</td><td class="malayalam-text">നമ്മൾ എത്തിക്കഴിഞ്ഞു.</td></tr>
+                            <tr><td class="english-text">I lost my bag.</td><td class="malayalam-text">എന്റെ ബാഗ് നഷ്ടപ്പെട്ടു.</td></tr>
+                            <tr><td class="english-text">Is this the right way?</td><td class="malayalam-text">ഇതാണോ ശരിയായ വഴി?</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="health" class="category-section">
+                <h2 class="category-title">Feelings & Health (വികാരങ്ങളും ആരോഗ്യവും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">I am happy today.</td><td class="malayalam-text">എനിക്ക് ഇന്ന് സന്തോഷമുണ്ട്.</td></tr>
+                            <tr><td class="english-text">She is sad.</td><td class="malayalam-text">അവൾക്ക് സങ്കടമുണ്ട്.</td></tr>
+                            <tr><td class="english-text">I am angry.</td><td class="malayalam-text">എനിക്ക് ദേഷ്യമുണ്ട്.</td></tr>
+                            <tr><td class="english-text">I have a headache.</td><td class="malayalam-text">എനിക്ക് തലവേദനയുണ്ട്.</td></tr>
+                            <tr><td class="english-text">Call a doctor immediately.</td><td class="malayalam-text">ഉടനെ ഒരു ഡോക്ടറെ വിളിക്കൂ.</td></tr>
+                            <tr><td class="english-text">I am feeling tired.</td><td class="malayalam-text">ഞാൻ ക്ഷീണിതനാണ്.</td></tr>
+                            <tr><td class="english-text">Don't worry.</td><td class="malayalam-text">വിഷമിക്കേണ്ട.</td></tr>
+                            <tr><td class="english-text">I feel cold.</td><td class="malayalam-text">എനിക്ക് തണുക്കുന്നു.</td></tr>
+                            <tr><td class="english-text">I am hungry.</td><td class="malayalam-text">എനിക്ക് വിശക്കുന്നു.</td></tr>
+                            <tr><td class="english-text">I am thirsty.</td><td class="malayalam-text">എനിക്ക് ദാഹിക്കുന്നു.</td></tr>
+                            <tr><td class="english-text">Take your medicine.</td><td class="malayalam-text">നിങ്ങളുടെ മരുന്ന് കഴിക്കൂ.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="work" class="category-section">
+                <h2 class="category-title">Work & Office (ജോലിയും ഓഫീസും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">I have a meeting now.</td><td class="malayalam-text">എനിക്ക് ഇപ്പോൾ ഒരു മീറ്റിംഗ് ഉണ്ട്.</td></tr>
+                            <tr><td class="english-text">Where is your office?</td><td class="malayalam-text">നിങ്ങളുടെ ഓഫീസ് എവിടെയാണ്?</td></tr>
+                            <tr><td class="english-text">Send the email quickly.</td><td class="malayalam-text">ഇമെയിൽ വേഗം അയക്കൂ.</td></tr>
+                            <tr><td class="english-text">I am busy right now.</td><td class="malayalam-text">ഞാൻ ഇപ്പോൾ തിരക്കിലാണ്.</td></tr>
+                            <tr><td class="english-text">Let's discuss this tomorrow.</td><td class="malayalam-text">നമുക്ക് ഇത് നാളെ ചർച്ച ചെയ്യാം.</td></tr>
+                            <tr><td class="english-text">Please sign here.</td><td class="malayalam-text">ദയവായി ഇവിടെ ഒപ്പിടുക.</td></tr>
+                            <tr><td class="english-text">Have you finished the work?</td><td class="malayalam-text">നിങ്ങൾ ജോലി തീർത്തോ?</td></tr>
+                            <tr><td class="english-text">I need a leave tomorrow.</td><td class="malayalam-text">എനിക്ക് നാളെ അവധി വേണം.</td></tr>
+                            <tr><td class="english-text">Good job!</td><td class="malayalam-text">നന്നായി ചെയ്തു!</td></tr>
+                            <tr><td class="english-text">Don't be late.</td><td class="malayalam-text">വൈകരുത്.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="shopping" class="category-section">
+                <h2 class="category-title">Shopping & Dining (ഷോപ്പിംഗും ഭക്ഷണവും)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">I want to buy a shirt.</td><td class="malayalam-text">എനിക്ക് ഒരു ഷർട്ട് വാങ്ങണം.</td></tr>
+                            <tr><td class="english-text">What is the price?</td><td class="malayalam-text">ഇതിന്റെ വില എന്താണ്?</td></tr>
+                            <tr><td class="english-text">This is very expensive.</td><td class="malayalam-text">ഇതിന് വളരെ വില കൂടുതലാണ്.</td></tr>
+                            <tr><td class="english-text">Do you have change?</td><td class="malayalam-text">നിങ്ങളുടെ കയ്യിൽ ചില്ലറയുണ്ടോ?</td></tr>
+                            <tr><td class="english-text">Bring the menu card.</td><td class="malayalam-text">മെനു കാർഡ് കൊണ്ടുവരൂ.</td></tr>
+                            <tr><td class="english-text">The food is very tasty.</td><td class="malayalam-text">ഭക്ഷണം വളരെ രുചികരമാണ്.</td></tr>
+                            <tr><td class="english-text">I need some water.</td><td class="malayalam-text">എനിക്ക് കുറച്ചു വെള്ളം വേണം.</td></tr>
+                            <tr><td class="english-text">Bring the bill, please.</td><td class="malayalam-text">ദയവായി ബിൽ കൊണ്ടുവരൂ.</td></tr>
+                            <tr><td class="english-text">Pack this food.</td><td class="malayalam-text">ഈ ഭക്ഷണം പാക്ക് ചെയ്യുക.</td></tr>
+                            <tr><td class="english-text">I am a vegetarian.</td><td class="malayalam-text">ഞാൻ സസ്യാഹാരിയാണ്.</td></tr>
+                            <tr><td class="english-text">Can I pay by card?</td><td class="malayalam-text">എനിക്ക് കാർഡ് വഴി പണമടക്കാമോ?</td></tr>
+                            <tr><td class="english-text">Show me something cheaper.</td><td class="malayalam-text">വില കുറഞ്ഞ മറ്റെന്തെങ്കിലും കാണിക്കൂ.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="commands" class="category-section">
+                <h2 class="category-title">General Commands & Requests (പൊതുവായ നിർദ്ദേശങ്ങൾ)</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Malayalam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="english-text">Come here.</td><td class="malayalam-text">ഇവിടെ വരൂ.</td></tr>
+                            <tr><td class="english-text">Go there.</td><td class="malayalam-text">അവിടെ പോകൂ.</td></tr>
+                            <tr><td class="english-text">Listen to me.</td><td class="malayalam-text">ഞാൻ പറയുന്നത് കേൾക്കൂ.</td></tr>
+                            <tr><td class="english-text">Look at this.</td><td class="malayalam-text">ഇതിലേക്ക് നോക്കൂ.</td></tr>
+                            <tr><td class="english-text">Wait outside.</td><td class="malayalam-text">പുറത്ത് നിൽക്കൂ.</td></tr>
+                            <tr><td class="english-text">Don't talk.</td><td class="malayalam-text">സംസാരിക്കരുത്.</td></tr>
+                            <tr><td class="english-text">Speak loudly.</td><td class="malayalam-text">ഉറക്കെ സംസാരിക്കൂ.</td></tr>
+                            <tr><td class="english-text">Be careful.</td><td class="malayalam-text">ശ്രദ്ധിക്കുക.</td></tr>
+                            <tr><td class="english-text">Do it right now.</td><td class="malayalam-text">ഇത് ഇപ്പോൾ തന്നെ ചെയ്യുക.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('.category-section');
+            let anyVisibleRows = false;
+
+            sections.forEach(section => {
+                const rows = section.querySelectorAll('tbody tr');
+                let sectionHasVisibleRow = false;
+
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        row.style.display = '';
+                        sectionHasVisibleRow = true;
+                        anyVisibleRows = true;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                // Hide the entire section if no rows match inside it
+                if (sectionHasVisibleRow) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Show "No results" message if needed
+            const noResults = document.getElementById('noResults');
+            if (!anyVisibleRows && searchTerm !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
